@@ -50,4 +50,6 @@ plt.show()
 output_csv_path = r'/Users/giliankoenders/Documents/#TU Delft/USA Omaha/Business Forecasting/Midterm_project/Correlation_Matrix.csv'
 print(f"Saving correlation matrix to {output_csv_path}...")
 correlation_matrix.to_csv(output_csv_path)
-print("Correlation matrix saved.")
+
+
+print("Run finished")

@@ -23,7 +23,7 @@ combined_data = pd.merge(vitamin_purchases, filtered_survey, on=survey_response_
 # - 'Survey ResponseID'
 # - 'Q-domestic state'
 
-# Remove the specified columns from the DataFrame
+# The code lines below remove the specified columns from the DataFrame
 columns_to_remove = ['ASIN/ISBN (Product Code)', 'Category', 'Survey ResponseID', 'Q-demos-state']
 df.drop(columns=columns_to_remove, inplace=True)
 
@@ -43,4 +43,4 @@ df.drop(columns=additional_columns_to_remove, inplace=True)
 # Save the combined data to a new CSV file
 combined_data.to_csv("/Users/giliankoenders/Documents/#TU Delft/USA Omaha/Business Forecasting/Midterm_project/Combined_dataset.csv", index=False)
 
-print("Data has been combined and saved to 'combined_data.csv'.")
+print("Run finished")
