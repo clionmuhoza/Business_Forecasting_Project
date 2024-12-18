@@ -56,4 +56,8 @@ filtered_df.to_csv(output_csv_file_path, index=False)
 print("\nFiltered DataFrame for CA and NY:")
 print(filtered_df.head())
 
+# Find out how many time Vitamin D is mentioned, this helps with verifying the plots you will make in the future
+vitamin_d_count = filtered_df['Vitamin D'].sum()
+print(f"Number of Vitamin D in the dataset: {vitamin_d_count}")
+
 print("Run finished")

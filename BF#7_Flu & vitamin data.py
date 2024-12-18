@@ -21,7 +21,7 @@ if 'WEEKEND' in filtered_flu_df.columns:
     filtered_flu_df.loc[:, 'WEEKEND'] = pd.to_datetime(filtered_flu_df['WEEKEND'], format='%b-%d-%Y')
     filtered_flu_df = filtered_flu_df.sort_values(by='WEEKEND')  # Ensure sorted by time
 
-# Convert 'ACTIVITY LEVEL' to numeric, forcing errors to NaN
+# Convert 'ACTIVITY LEVEL' to numeric, forcing errors to NaN. This gives us a "clean" dataset
 filtered_flu_df['ACTIVITY LEVEL'] = pd.to_numeric(filtered_flu_df['ACTIVITY LEVEL'].str.extract('(\d+)')[0], errors='coerce')
 
 flu_pivot = filtered_flu_df.pivot(index='WEEKEND', columns='STATENAME', values='ACTIVITY LEVEL')
@@ -54,10 +54,10 @@ vitamins = [
     'B5', 'B7', 'B9', 'Multivitamin'
 ]
 
-# Ensure 'Order Date' column exists and is datetime
+# Make sure that 'Order Date' column is datetime, otherwise the plot will not work
 if 'Order Date' in df.columns:
     df['Order Date'] = pd.to_datetime(df['Order Date'])
-    df = df.sort_values(by='Order Date')  # Ensure sorted by time
+    df = df.sort_values(by='Order Date')  
 
 # Calculate total products sold for each vitamin category per day
 daily_sales = df.groupby('Order Date')[vitamins].sum()
@@ -88,7 +88,7 @@ plt.show()
 # Filter the flu dataset for California and New York
 ca_ny_flu_df = flu_df[flu_df['STATENAME'].isin(['California', 'New York'])].copy()
 
-# Ensure 'WEEKEND' column exists and is datetime
+# Ensure 'WEEKEND' column is datetime
 if 'WEEKEND' in ca_ny_flu_df.columns:
     ca_ny_flu_df.loc[:, 'WEEKEND'] = pd.to_datetime(ca_ny_flu_df['WEEKEND'], format='%b-%d-%Y')
     ca_ny_flu_df = ca_ny_flu_df.sort_values(by='WEEKEND')  # Ensure sorted by time

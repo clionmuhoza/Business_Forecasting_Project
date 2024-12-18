@@ -1,5 +1,6 @@
 import pandas as pd
 
+# Load the dataset
 csv_file_path = r'/Users/giliankoenders/Documents/#TU Delft/USA Omaha/Business Forecasting/Midterm_project/Combined_dataset.csv'
 
 df = pd.read_csv(csv_file_path)
@@ -55,5 +56,9 @@ vitamin_d_df.to_csv(output_csv_file_path, index=False)
 
 print("\nFiltered DataFrame with Vitamin D:")
 print(vitamin_d_df.head())
+
+# Find out what the size is of the Vitamin D dataset
+print("\nSize of the Vitamin D dataset:")
+print(vitamin_d_df.shape)
 
 print("Run finished")

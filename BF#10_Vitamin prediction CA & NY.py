@@ -17,12 +17,12 @@ vitamin_df['Shipping Address State'] = vitamin_df['Shipping Address State'].repl
 vitamin_df['Order Date'] = pd.to_datetime(vitamin_df['Order Date'], errors='coerce')
 flu_df['WEEKEND'] = pd.to_datetime(flu_df['WEEKEND'], errors='coerce')
 
-# --- Process Flu Data ---
+# Process Flu Data
 filtered_flu_df = flu_df[flu_df['STATENAME'].isin(states)].copy()
 filtered_flu_df['ACTIVITY LEVEL'] = pd.to_numeric(filtered_flu_df['ACTIVITY LEVEL'].astype(str).str.extract(r'(\d+)')[0], errors='coerce')
 flu_pivot = filtered_flu_df.pivot(index='WEEKEND', columns='STATENAME', values='ACTIVITY LEVEL')
 
-# --- Process Vitamin D Data ---
+# Process Vitamin D Data
 filtered_vitamin_df = vitamin_df[vitamin_df['Shipping Address State'].isin(states)].copy()
 filtered_vitamin_df = filtered_vitamin_df[filtered_vitamin_df['Vitamins Found'].str.contains('Vitamin D', case=False, na=False)]
 
@@ -36,7 +36,7 @@ aggregated_vitamin_df = (
 vitamin_pivot = aggregated_vitamin_df.pivot(index='Order Date', columns='Shipping Address State', values='Vitamin D Count')
 vitamin_pivot = vitamin_pivot.resample('D').sum().fillna(0)
 
-# --- Merge Flu and Vitamin D Data ---
+# Merge Flu and Vitamin D Data
 combined_df = pd.merge(flu_pivot, vitamin_pivot, left_index=True, right_index=True, how='outer', suffixes=('_flu', '_vitamin'))
 combined_df = combined_df.fillna(0)
 
