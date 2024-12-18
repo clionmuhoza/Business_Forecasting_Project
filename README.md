@@ -24,7 +24,7 @@ This script analyzes demographic trends in vitamin sales for California and New 
 
 _Script 5: Correlation Analysis_
 The following script calculates a correlation matrix such that demographic and behavioral variables are matched against the product purchases, encoding categorical variables and handling missing data to, finally, visualize the correlations in a heat map highlighting eventual predictors of the vitamins sales.
- 
+
 _Script 6: Vitamin analysis and filtering_
 The script identifies and categorizes vitamins from the product title into binary flags of specific vitamins. Then, it calculates counts and distributions of vitamins across products, filtering the dataset by key states, such as CA, TX, and NY. It provides insights such as most sold vitamins, popular states that sell these vitamins, hence refining regional sales strategy.
 
