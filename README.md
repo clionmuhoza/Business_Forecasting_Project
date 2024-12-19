@@ -43,3 +43,8 @@ This script integrates flu activity data and Vitamin D sales in California and N
 _Script 11: Correlation Matrix for Flu and Vitamin Data_
 This script calculates a correlation matrix between flu activity levels and individual vitamins sold weekly. It preprocesses both datasets, aggregates data by week, and visualizes correlations to identify potential relationships between flu levels and vitamin consumption.
 
+_Scipt 12: Gam Model 
+This script creates the GAM model, this is based on the Vitamin Dataset. This is done as the rest of the scripts has proven that a specific outcome for one type of vitamin is hard to model and the outcome not useful.
+
+_Script 13: exponential smoothing_
+This script gives a future prediction of the sales for the whole dataset. With the forecast a prodiction is made for the whole vitamin sector as distinguishing don't give adequate results. The model is a forecast of several months and makes use of exponential smoothing.
